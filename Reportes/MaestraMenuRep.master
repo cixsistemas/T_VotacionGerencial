@@ -1,0 +1,160 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="MaestraMenuRep.master.cs" Inherits="Reportes_MaestraMenuRep" %>
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+ <link rel="icon" type="image/ico" href="../Imagenes/Inicio.ico" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta charset="utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <title>Reportes</title>
+    <!-- Bootstrap -->
+    <link href="../bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="../Otros_css_js/Menu.css" rel="stylesheet" />
+    <style>
+        .dropdown-submenu {
+            position: relative;
+        }
+
+            .dropdown-submenu > .dropdown-menu {
+                top: 0;
+                left: 100%;
+                margin-top: -6px;
+                margin-left: -2px;
+            }
+
+            .dropdown-submenu:hover > .dropdown-menu {
+                display: block;
+            }
+
+            .dropdown-submenu > a:after {
+                content: "";
+                margin-top: 6px;
+                margin-right: -10px;
+                float: right;
+                border-left: 4px solid;
+                border-top: 4px solid transparent;
+                border-bottom: 4px solid transparent;
+            }
+    </style>
+
+    <script type="text/javascript">
+       function MostrarMensaje() {
+           var mensaje = document.getElementById("ContentPlaceHolder3___mensaje").value;
+           if (mensaje != "") {
+               alert(mensaje);
+               if (document.getElementById("ctl00$ContentPlaceHolder3$__mensaje").value != "")
+                   location.href = document.getElementById("ctl00$ContentPlaceHolder3$__mensaje").value;
+           }
+       }
+
+            function window_load() {
+                MostrarMensaje()
+            }
+
+     </script>
+
+    <asp:ContentPlaceHolder id="HeadContent" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+    <%-- INICIOOOOOOOO ............... MENUUUUUUUUUUUUU --%>
+<body onload="MostrarMensaje()">
+    <nav class="navbar navbar-custom navbar-fixed-top" role="navigation">
+        <!-- El logotipo y el icono que despliega el menú se agrupan
+       para mostrarlos mejor en los dispositivos móviles -->
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse"
+                data-target=".navbar-ex1-collapse">
+                <span class="sr-only">Desplegar navegación</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="../menu.aspx"><span class="glyphicon glyphicon-home"></span> Inicio</a>
+            <%--<a class="navbar-brand" href="menu.aspx"><span><img src="imagenes/001-home.png" /></span>  Inicio</a>--%>
+        </div>
+
+
+        <!-- -->
+        <!-- Agrupar los enlaces de navegación, los formularios y cualquier
+       otro elemento que se pueda ocultar al minimizar la barra -->
+        <div class="collapse navbar-collapse navbar-ex1-collapse">
+            <ul class="nav navbar-nav">
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"><span class="glyphicon glyphicon-briefcase"></span> Mantenimiento <b class="caret"></b>
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li><a href="../Socios.aspx" runat="server" id="Socios_aspx">Socios</a></li>
+                        <li><a href="../PeriodoVotacion.aspx" runat="server" id="PeriodoVotacion_aspx">Periodo</a></li>
+                        <li><a href="../Cargo.aspx" runat="server" id="Cargo_aspx">Cargo</a></li>
+                        <li class="divider"></li>
+                    </ul>
+                </li>
+            </ul>
+
+
+            <ul class="nav navbar-nav">
+                <!--<li class="active"><a href="#">Enlace #1</a></li>
+                <li><a href="#">Enlace #2</a></li>-->
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"><span class="glyphicon glyphicon-user"></span> Transacciones <b class="caret"></b>
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li><a href="../Candidato.aspx" runat="server" id="Candidato_aspx">Candidato</a></li>
+                        <li class="divider"></li>
+                        <li><a href="../ElegirCargo.aspx" target="_blank" runat="server" id="ElegirCargo_aspx"
+                            style="text-align: left; color: darkblue;">Elegir Cargo</a></li>
+                    </ul>
+                </li>
+            </ul>
+
+            <ul class="nav navbar-nav">
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"><span class="glyphicon glyphicon-file"></span> Reportes <b class="caret"></b>
+                    </a>
+                    <ul class="dropdown-menu">
+                       <li><a href="RepListaGanadores.aspx" runat="server" id="RepListaGanadores_aspx">Ganadores </a></li>
+                        <li><a href="RepGralVotaciones.aspx" runat="server" id="RepGralVotaciones_aspx">Resultados </a></li>
+                        <%--<li><a href="../Reportes/RepDatosPersTrabSuc.aspx" runat="server" id="RepDatosPersTrabSuc_aspx">Por Sucursal</a></li>--%>
+                    </ul>
+                </li>
+            </ul>
+
+             <ul class="nav navbar-nav">
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"><span class="glyphicon glyphicon-wrench"></span> Utilitarios <b class="caret"></b>
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li><a href="../AnularActivarVoto.aspx" runat="server" id="AnularActivarVoto_aspx">Anular o Activar Voto </a></li>
+                        <%--<li><a href="../Reportes/RepDatosPersTrabSuc.aspx" runat="server" id="RepDatosPersTrabSuc_aspx">Por Sucursal</a></li>--%>
+                    </ul>
+                </li>
+            </ul>
+
+
+        </div>
+    </nav>
+
+    <%--  ......NO CAMBIAR.........  --%>
+    <div class="section">
+        <div class="container">
+            <div class="row main-low-margin">
+                <div class="col-md-10 col-md-offset-1 col-sm-10 col-sm-offset-1">
+                    <h3>-</h3>
+                </div>
+            </div>
+        </div>
+    </div>
+    <%-- FINNNNNNNN ............... MENUUUUUUUUUUUUU --%>
+
+    <asp:ContentPlaceHolder ID="ContentPlaceHolder3" runat="server">
+    </asp:ContentPlaceHolder>
+
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="../bootstrap/js/jquery-1.12.4.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="../bootstrap/js/bootstrap.min.js"></script>
+</body>
+</html>

@@ -1,0 +1,12 @@
+﻿/*VENTANA MODAL*/
+  .modal-header, h4, .close {
+     /*background-color: #5cb85c;*/
+        background-color: #376d98;
+      color:white !important;
+      text-align: center;
+      font-size: 25px;
+  }
+  .modal-footer {
+      background-color: #f9f9f9;
+  }
+
